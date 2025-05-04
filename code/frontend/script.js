@@ -1,5 +1,5 @@
 
-const api = 'http://localhost:3000/students';
+const api = 'http://192.168.30.45:30081/students';
 
 async function loadStudents() {
   const res = await fetch(api);

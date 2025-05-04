@@ -9,14 +9,17 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
+    host: process.env.DB_HOST || 'mysql', //localhost to mysql
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || 'password',
     database: process.env.DB_NAME || 'studentdb'
 });
 
 db.connect(err => {
-    if (err) throw err;
+    if (err) { // throw err;
+	console.error("MySQL connection failed:", err.message);
+	return;
+    }
     console.log("MySQL connected");
 });
 
