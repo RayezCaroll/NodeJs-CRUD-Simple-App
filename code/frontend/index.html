@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student CRUD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Management</h1>
+    <input type="text" id="name" placeholder="Student Name" required>
+    <input type="number" id="age" placeholder="Age" required>
+    <button onclick="addStudent()">Submit</button>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Student Name</th><th>Age</th><th>Edit</th><th>Delete</th></tr>
+      </thead>
+      <tbody id="studentTable"></tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
