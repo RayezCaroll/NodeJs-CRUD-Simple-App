@@ -13,3 +13,7 @@ data:
       name VARCHAR(100) NOT NULL,
       age INT NOT NULL
     );
+  config.js: |
+    window._env_ = {
+      API_URL: "http://backend.myapp.svc.cluster.local:3000"
+    };

@@ -1,5 +1,5 @@
 
-const api = 'http://192.168.30.45:30081/students';
+const api = window._env_.API_URL + '/students';
 
 async function loadStudents() {
   const res = await fetch(api);
