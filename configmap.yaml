@@ -15,5 +15,5 @@ data:
     );
   config.js: |
     window._env_ = {
-      API_URL: "192.168.30.45:30081"
+      API_URL: "http://192.168.30.45:30081"
     };
