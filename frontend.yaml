@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: sweetimages/luckyimage:frontend-6.0
+        image: sweetimages/luckyimage:frontend-7.0
         ports:
         - containerPort: 80
         volumeMounts:
