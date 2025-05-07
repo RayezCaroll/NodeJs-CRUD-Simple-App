@@ -1,0 +1,32 @@
+mysql:
+  auth:
+    username: myuser
+    password: mypass
+backend:
+  image: sweetimages/luckyimage:backend-3.0
+  db:
+    host: mysql
+    port: "3306"
+    name: studentdb
+    initSql: |
+      CREATE TABLE IF NOT EXISTS students (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        age INT NOT NULL
+      );
+  service:
+    nodePort: 30081
+
+frontend:
+  image: sweetimages/luckyimage:frontend-7.0
+  envConfig: |
+    window._env_ = {
+      API_URL: "http://192.168.30.45:30081"
+    };
+  service:
+    nodePort: 30080
+
+deploy:
+  mysql: true
+  backend: false
+  frontend: false

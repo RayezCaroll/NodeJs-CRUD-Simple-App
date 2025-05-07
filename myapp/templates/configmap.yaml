@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: {{ .Release.Namespace }}
+data:
+  DB_HOST: {{ .Values.backend.db.host | quote }}
+  DB_PORT: {{ .Values.backend.db.port | quote }}
+  DB_NAME: {{ .Values.backend.db.name | quote }}
+  init.sql: |
+{{ .Values.backend.db.initSql | indent 4 }}
+  config.js: |
+{{ .Values.frontend.envConfig | indent 4 }}
+

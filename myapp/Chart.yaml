@@ -1,0 +1,7 @@
+apiVersion: v2
+name: myapp
+description: A Helm chart for deploying a full-stack Node.js CRUD app with MySQL
+type: application
+version: 0.1.0
+appVersion: "1.0"
+
