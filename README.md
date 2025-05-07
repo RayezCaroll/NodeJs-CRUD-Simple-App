@@ -1,16 +1,13 @@
 ===================== Installation with Helm =================================
 
 # Step 1: Install only MySQL
-helm install myapp ./myapp -n myapp --create-namespace \
-  --set deploy.mysql=true,deploy.backend=false,deploy.frontend=false
+helm install myapp ./myapp -n myapp --create-namespace --set deploy.mysql=true,deploy.backend=false,deploy.frontend=false
 
 # Step 2: Upgrade and add backend
-helm upgrade myapp ./myapp -n myapp \
-  --set deploy.mysql=true,deploy.backend=true,deploy.frontend=false
+helm upgrade myapp ./myapp -n myapp --set deploy.mysql=true,deploy.backend=true,deploy.frontend=false
 
 # Step 3: Upgrade and add frontend
-helm upgrade myapp ./myapp -n myapp \
-  --set deploy.mysql=true,deploy.backend=true,deploy.frontend=true
+helm upgrade myapp ./myapp -n myapp --set deploy.mysql=true,deploy.backend=true,deploy.frontend=true
 
 ========================== T-Shoot =======================================
 
