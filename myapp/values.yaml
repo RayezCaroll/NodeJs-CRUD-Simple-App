@@ -16,15 +16,21 @@ backend:
       );
   service:
     nodePort: 30081
+    port: 3000
 
 frontend:
   image: sweetimages/luckyimage:frontend-7.0
   envConfig: |
     window._env_ = {
-      API_URL: "http://192.168.30.45:30081"
+      API_URL: "http://backend:3000"
     };
   service:
     nodePort: 30080
+    port: 80
+    targetport: 30080
+  ingress:
+    enabled: true
+    host: frontend.local
 
 deploy:
   mysql: true
