@@ -22,12 +22,12 @@ frontend:
   image: sweetimages/luckyimage:frontend-7.0
   envConfig: |
     window._env_ = {
-      API_URL: "http://backend:3000"
+      API_URL: "http://studentapp.local"
     };
   service:
     nodePort: 30080
     port: 80
-    targetport: 30080
+    targetport: 80
   ingress:
     enabled: true
     host: frontend.local
