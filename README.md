@@ -9,7 +9,21 @@ helm upgrade myapp ./myapp -n myapp --set deploy.mysql=true,deploy.backend=true,
 # Step 3: Upgrade and add frontend
 helm upgrade myapp ./myapp -n myapp --set deploy.mysql=true,deploy.backend=true,deploy.frontend=true
 
+# Step 4: Install MetalLB - inside metallb dir
+kubectl apply -f metallb-native.yaml
+kubectl apply -f metallb-config.yaml
+
+# Step 5: Install Ingress Controller - inside ingress dir
+kubectl apply -f deploy.yaml
+kubectl apply -f frontend-ingress.yaml
+
 ========================== T-Shoot =======================================
+
+# kubectl get ingress -n myapp
+
+# kubectl get all -n metallb-system
+
+# kubectl get svc -n ingress-nginx
 
 # kubectl run -it --rm --image=nicolaka/netshoot test --restart=Never -n myapp -- bash
 
@@ -23,3 +37,5 @@ CREATE TABLE students (
 # mysql -h 127.0.0.1 -u myuser -pmypass studentdb -e "DESCRIBE students;"
 
 # mysql -h 127.0.0.1 -u myuser -pmypass studentdb -e "SELECT * FROM students;"
+
+=============================================================================
